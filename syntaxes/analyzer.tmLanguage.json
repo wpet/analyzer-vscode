@@ -1,0 +1,60 @@
+{
+  "scopeName": "source.analyzer",
+  "name": "Analyzer",
+  "patterns": [
+    {
+      "name": "keyword.control.analyzer",
+      "match": "\\b(ASSIGN|OPEN|CLOSE|FORMAT|COUNT|TOTAL|DIALOG|PAUSE|BUTTONSET|TITLE|WIDTH|HEIGHT|AT|OR|ALL|EXTRACT|EXTRACT\\s+RECORD|TO|DISPLAY|DUPLICATES|APPEND|FIRST|STATISTICS|EXPORT|DEFINE\\s+FIELD|IMPORT\\s+FILE|PROCEDURE|LIST\\s+UNFORMATTED|CROSSTAB|RUN|RETURN|SUMMARIZE|CLASSIFY|STRATIFY|SORT|EXTRACT\\s+FIELDS|JOIN|DELETE|SET|DO|IF|WHILE)\\b"
+    },
+    {
+      "name": "support.function.analyzer",
+      "match": "\\b(ABS(?:OLUTE)?\\(|AGE\\(|ALLTRIM\\(|AT\\(|AVERAGE\\(|BETWEEN\\(|BLANKS\\(|CTOD\\(|DATE\\(|DEC(?:IMALS)?\\(|EXCLUDE\\(|EXPONENT\\(|FIND\\(|HEXADECIMAL\\(|IF\\(|INCLUDE\\(|INTEGER\\(|ISBLANK\\(|ISDEFINED\\(|ISFUZZYDUP\\(|LEFT\\(|LENGTH\\(|LFILL\\(|LISTFIND\\(|LOWER\\(|LTRIM\\(|MAP\\(|MATCH\\(|MAXIMUM\\(|MINIMUM\\(|NEAR\\(|NORMALIZE\\(|NOW\\(|OCCURS\\(|RANDOM\\(|RECNO\\(|RECOFFSET\\(|REGEXFIND\\(|REGEXREPLACE\\(|REMOVE\\(|REPEAT\\(|REPLACE\\(|REVERSE\\(|RIGHT\\(|ROOT\\(|ROUND\\(|SIMILAR\\(|SIZE\\(|SMARTSEARCH\\(|SORTNORMALIZE\\(|SPLIT\\(|STRING\\(|SUBSTRING\\(|TODAY\\(|TOTAL\\(|TRIM\\(|UPPER\\(|VALUE\\()"
+    },
+    {
+      "name": "comment.line.analyzer",
+      "begin": "^(?:COMMENT|comm|\\*)\\b",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.analyzer"
+        }
+      },
+      "end": "$",
+      "patterns": [
+        {
+          "match": ".+",
+          "name": "comment.line.analyzer"
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.double.analyzer",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.analyzer"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.analyzer"
+        }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.analyzer",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "constant.numeric.analyzer",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "name": "variable.other.analyzer",
+      "match": "\\bv[A-Z][a-zA-Z0-9]*\\b"
+    }
+  ],
+  "repository": {}
+}

@@ -1,0 +1,26 @@
+{
+  "name": "analyzer",
+  "displayName": "arbutus-analyzer-extension",
+  "description": "Arbutus Analyzer syntax highlighting",
+  "version": "0.0.1",
+  "publisher": "Wil Peters - Prosperius",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "analyzer",
+      "aliases": ["Analyzer", "analyzer"],
+      "extensions": [".pro"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "analyzer",
+      "scopeName": "source.analyzer",
+      "path": "./syntaxes/analyzer.tmLanguage.json"
+    }]
+  }
+}
